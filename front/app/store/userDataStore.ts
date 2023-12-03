@@ -8,7 +8,8 @@ export default class UserDataStore {
   }
   postUserData = async (userData: IUserData) => {
     try {
-      await agent.UserData.create(userData);
+      const responce = await agent.UserData.create(userData);
+      return responce;
       //   const newActivity = new Activity(activity);
       //   newActivity.hostUsername = user!.username;
       //   newActivity.attendees = [profile];

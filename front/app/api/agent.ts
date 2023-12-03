@@ -18,6 +18,28 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
+const requests = {
+  // get: <T>(url: string, body: {}) => axios.get<T>(url, body).then(responseBody),
+  get: <T>(url: string, params?: {}) =>
+    axios.get<T>(url, { params }).then(responseBody),
+  post: <T>(url: string, body: {}) =>
+    axios.post<T>(url, body).then(responseBody),
+  // put: <T>(url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
+  // del: <T>(url: string) => axios.delete<T>(url).then(responseBody)
+};
+
+const UserData = {
+  get_advice: (userData: IUserData) => requests.get<string>(`/api/`, userData),
+
+  create: (userData: IUserData) => requests.post<void>(`/`, userData),
+};
+
+const agent = {
+  UserData,
+};
+
+export default agent;
+
 // axios.interceptors.response.use(async response => {
 //     if (process.env.NODE_ENV === 'development') await sleep(1000);
 //     const pagination = response.headers['pagination'];
@@ -62,24 +84,6 @@ axios.interceptors.request.use((config) => {
 //     return Promise.reject(error);
 // })
 
-const requests = {
-  // get: <T>(url: string) => axios.get<T>(url).then(responseBody),
-  post: <T>(url: string, body: {}) =>
-    axios.post<T>(url, body).then(responseBody),
-  // put: <T>(url: string, body: {}) => axios.put<T>(url, body).then(responseBody),
-  // del: <T>(url: string) => axios.delete<T>(url).then(responseBody)
-};
-
-const UserData = {
-  // list: (params: URLSearchParams) => axios.get<PaginatedResult<Activity[]>>('/activities', { params })
-  //     .then(responseBody),
-  // details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-  create: (userData: IUserData) => requests.post<void>(`/`, userData),
-  // update: (activity: ActivityFormValues) => requests.put<void>(`/activities/${activity.id}`, activity),
-  // delete: (id: string) => requests.del<void>(`/activities/${id}`),
-  // attend: (id: string) => requests.post<void>(`/activities/${id}/attend`, {})
-};
-
 // const Account = {
 //     current: () => requests.get<User>('account'),
 //     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -104,9 +108,3 @@ const UserData = {
 //     listActivities: (username: string, predicate: string) =>
 //         requests.get<UserActivity[]>(`/profiles/${username}/activities?predicate=${predicate}`)
 // }
-
-const agent = {
-  UserData,
-};
-
-export default agent;

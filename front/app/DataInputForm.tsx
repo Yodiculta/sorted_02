@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, TextBase } from 'react-native';
 import { store } from './store/store';
 import { IUserData } from './models/profile';
 
@@ -12,6 +12,7 @@ const DataInputForm: React.FC = () => {
     areaOfDevelopment: '',
     experienceDescription: '',
   });
+  const [advice, setAdvice] = useState<string>('')
 
   const handleChange = (field: keyof IUserData, value: string) => {
     setFormData(prevFormData => ({
@@ -20,12 +21,13 @@ const DataInputForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Обработка отправки данных
     // Можно выполнить здесь валидацию, отправку на сервер или другие действия
     console.log('Отправленные данные:', formData);
-    store.userDataStore.postUserData(formData)
-
+    const result = await store.userDataStore.postUserData(formData)
+    const responce = await `${result}`;
+    setAdvice(responce);
     // Очистка полей после отправки
     setFormData({
       // id:'',
@@ -57,6 +59,10 @@ const DataInputForm: React.FC = () => {
       />
 
       <Button title="Отправить" onPress={handleSubmit} />
+
+      {
+        advice?? <TextBase>{advice} </TextBase>
+      }
     </View>
   );
 };
