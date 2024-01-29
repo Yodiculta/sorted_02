@@ -1,9 +1,11 @@
 // import { Button } from '@ya.praktikum/react-developer-burger-ui-components';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView, Pressable, Alert, TextInput} from 'react-native';
-import DataInputForm from './app/DataInputForm';
+// import DataInputForm from './app/DataInputForm';
 
 import { rootStore, StoreProvider } from "./app/store/index";
+import AuthForm from './app/pages/Authorization';
+import AppHeader from './app/components/appHeader/AppHeader';
 
 export default function App() {
   const handleButtonPress = () => Alert.alert("Hello", 'message', [
@@ -15,7 +17,9 @@ export default function App() {
   return (
     <StoreProvider value={rootStore}>
     <SafeAreaView style={styles.container}>
-      <DataInputForm/>
+      {/* <DataInputForm/> */}
+      <AppHeader />
+      <AuthForm />
     </SafeAreaView>
     </StoreProvider>
   );

@@ -1,0 +1,57 @@
+.container {
+  background: #ffffff no-repeat center top / cover;
+  width: 100%;
+  height: 88px;
+  position: relative;
+  gap: 15%;
+  justify-content: center;
+  
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  margin-left: 20px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+.group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 42px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  height: 56px;
+  border-radius: 10px;
+  line-height: 1%;
+}
+.section{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #374175;
+  font-size: 21px;
+  font-style: normal;
+}
+
+.name_of_project {
+  color: #374175;
+  white-space: nowrap;
+  /* leading-trim: both;
+  text-edge: cap; */
+  font-family: 'Roboto', Arial, sans-serif;
+  
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 86%; 
+}
+.group_with_logo
+{
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+
+}
