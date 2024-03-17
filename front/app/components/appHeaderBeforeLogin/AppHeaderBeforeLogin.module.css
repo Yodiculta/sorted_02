@@ -1,0 +1,23 @@
+
+.section{
+  /* min-width: 160%; */
+  height: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #374175;
+  font-size: 21px;
+  font-style: normal;
+}
+
+.name_of_project {
+  color: #374175;
+  white-space: nowrap;
+  /* leading-trim: both;
+  text-edge: cap; */
+  font-family: 'Roboto', Arial, sans-serif;
+  
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 86%; 
+}

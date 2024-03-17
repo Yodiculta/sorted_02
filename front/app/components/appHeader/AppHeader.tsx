@@ -25,7 +25,7 @@ function AppHeader() {
           <h3 className='section'>Закладки</h3>
         </div>
         <div className='item'>
-          <AccountCircle type="secondary" />
+          <AccountCircle type="secondary" fontSize="large" />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 .container {
   background: #ffffff no-repeat center top / cover;
-  width: 100%;
+  width: 80%;
   height: 88px;
   position: relative;
   gap: 15%;
@@ -12,6 +12,23 @@
   margin-left: 20px;
   font-style: normal;
   font-weight: normal;
+  
+}
+@media screen and (max-width: 820px){
+     
+  .container {
+      height: auto;
+  }
+   
+  .container > div,
+  .container > div h1,
+  .container nav {
+      height: auto;
+      width: auto;
+      display: block;
+      text-align: center;
+  }
+   
 }
 
 
@@ -29,6 +46,8 @@
   line-height: 1%;
 }
 .section{
+  min-width: 160%;
+  height: auto;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #374175;
@@ -43,7 +62,7 @@
   text-edge: cap; */
   font-family: 'Roboto', Arial, sans-serif;
   
-  font-size: 32px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 86%; 
